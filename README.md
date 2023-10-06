@@ -6,3 +6,9 @@
     - Ends: 2:20 AM
     - Finalization: 2:55 AM
 - Time to the make animation: -
+
+TO-DOs:
+[x] Proof-of-concept
+[ ] Animation creation tools
+[ ] Make animation
+[ ] NyanCat
