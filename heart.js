@@ -4,16 +4,6 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function classTranslator(codeToTranslate, classDict) {
-    for (const key in classDict) {
-        // console.log(codeToTranslate, key)
-        if (classDict.hasOwnProperty(codeToTranslate)) {
-            return classDict[key];
-        }
-    }
-    return '';
-}
-
 function frameTranslator(frameData) {
     const classCodeDict = [
         {
@@ -73,29 +63,25 @@ function frameRefresh(canvas, contentClass) {
     }
 }
 
-const art = [
-    [2],
-    [2],
-    [2, 2, 2, 2, 3, 3, 3, 2, 2, 2, 3, 3, 3],
-    [2, 2, 2, 3, 4, 4, 4, 3, 2, 3, 4, 4, 4, 3],
-    [2, 2, 3, 4, 1, 1, 4, 4, 3, 4, 4, 4, 4, 4, 3],
-    [2, 2, 3, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3],
-    [2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3],
-    [2, 2, 3, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3],
-    [2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3],
-    [2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3],
-    [2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 3],
-    [2, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 3],
-    [2, 2, 2, 2, 2, 2, 3, 4, 4, 4, 3],
-    [2, 2, 2, 2, 2, 2, 2, 3, 4, 3],
-    [2, 2, 2, 2, 2, 2, 2, 2, 3],
-]
-
-// frameSet(canvas, 'score_correct');
-//
-// frameRefresh(canvas, frameTranslator(art));
-
 async function startAnim() {
+    const base = [
+        [2],
+        [2],
+        [2, 2, 2, 2, 3, 3, 3, 2, 2, 2, 3, 3, 3],
+        [2, 2, 2, 3, 4, 4, 4, 3, 2, 3, 4, 4, 4, 3],
+        [2, 2, 3, 4, 1, 1, 4, 4, 3, 4, 4, 4, 4, 4, 3],
+        [2, 2, 3, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3],
+        [2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3],
+        [2, 2, 3, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3],
+        [2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3],
+        [2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3],
+        [2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 3],
+        [2, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 3],
+        [2, 2, 2, 2, 2, 2, 3, 4, 4, 4, 3],
+        [2, 2, 2, 2, 2, 2, 2, 3, 4, 3],
+        [2, 2, 2, 2, 2, 2, 2, 2, 3],
+    ]
+
     const animFrames = [
         [
             [2],
