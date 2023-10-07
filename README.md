@@ -13,7 +13,7 @@
     - Ends: 4:40 AM
 
 TO-DOs:
--[x] Proof-of-concept
--[x] Animation creation tools
--[x] Make animation
--[ ] NyanCat
+- [x] Proof-of-concept
+- [x] Animation creation tools
+- [x] Make animation
+- [ ] NyanCat
